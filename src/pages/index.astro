@@ -1,11 +1,33 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Base from "../layouts/Base.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<Base title="Saltire the Gays" emoji="🏴󠁧󠁢󠁳󠁣󠁴󠁿">
+  <script>
+    import "../custom-elements/flag.ts";
+  </script>
+  <h1 style="text-align: center;">Saltire the Gays 🏴󠁧󠁢󠁳󠁣󠁴󠁿</h1>
+  <saltire-the-gays></saltire-the-gays>
+  <style slot="head" is:inline>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    saltire-the-gays {
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & label {
+        background-color: var(--accent);
+        width: fit-content;
+        padding-inline: 20px;
+        padding-block: 10px;
+        margin: 10px;
+      }
+    }
+  </style>
+</Base>

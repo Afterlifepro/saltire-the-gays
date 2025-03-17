@@ -1,0 +1,146 @@
+---
+export interface Props {
+  title: string;
+  emoji: string;
+}
+
+const { title, emoji } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="manifest" href="manifest.json" /> -->
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="icon"
+      href=`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${emoji}</text></svg>`
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <style is:global>
+      @import url("https://fonts.googleapis.com/css?family=Bai%20Jamjuree:700|Bai%20Jamjuree:400");
+      @layer reset theme;
+
+      /* instantly overwrite reset */
+      @layer reset {
+        :root {
+          font-size: 62.5%;
+        }
+
+        body {
+          font-size: 1.6rem;
+          line-height: 1.5;
+          -webkit-font-smoothing: antialiased;
+        }
+
+        *,
+        *::before,
+        *::after {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          appearance: none;
+        }
+
+        img,
+        picture,
+        video,
+        canvas,
+        svg {
+          display: block;
+          max-width: 100%;
+        }
+
+        input,
+        button,
+        textarea,
+        select {
+          font: inherit;
+        }
+
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          overflow-wrap: break-word;
+        }
+
+        p {
+          text-wrap: pretty;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          text-wrap: balance;
+        }
+      }
+
+      /* @layer theme { */
+        :root {
+          --text: #deebf6;
+          --background: #07111b;
+          --accent: #005eb8;
+        }
+
+        body {
+          font-family: "Bai Jamjuree";
+          font-weight: 400;
+          background-color: var(--background);
+          color: var(--text);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+          font-family: "Bai Jamjuree";
+          font-weight: 700;
+        }
+
+        html {
+          font-size: 100%;
+        } /* 16px */
+
+        h1 {
+          font-size: 3.366rem; /* 53.92px */
+        }
+
+        h2 {
+          font-size: 2.525rem; /* 40.32px */
+        }
+
+        h3 {
+          font-size: 1.894rem; /* 30.24px */
+        }
+
+        h4 {
+          font-size: 1.421rem; /* 22.72px */
+        }
+
+        h5 {
+          font-size: 1.066rem; /* 17.12px */
+        }
+
+        small {
+          font-size: 0.6rem; /* 9.6px */
+        }
+      /* } */
+    </style>
+
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
