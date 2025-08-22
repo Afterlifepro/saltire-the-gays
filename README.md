@@ -1,3 +1,7 @@
+> [!WARNING]
+> This repository has been archived in favour of <https://tangled.sh/@vielle.dev/saltire-the-gays>
+> It won't get updated either but is the new source of truth
+
 # Astro Starter Kit: Basics
 
 ```sh
